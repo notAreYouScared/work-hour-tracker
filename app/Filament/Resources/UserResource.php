@@ -6,8 +6,8 @@ use App\Enums\Role;
 use App\Filament\Resources\UserResource\Pages;
 use App\Models\User;
 use Filament\Forms;
-use Filament\Forms\Form;
 use Filament\Resources\Resource;
+use Filament\Schemas\Schema;
 use Filament\Tables;
 use Filament\Tables\Table;
 
@@ -15,10 +15,10 @@ class UserResource extends Resource
 {
     protected static ?string $model = User::class;
 
-    public static function form(Form $form): Form
+    public static function form(Schema $schema): Schema
     {
-        return $form
-            ->schema([
+        return $schema
+            ->components([
                 Forms\Components\TextInput::make('name')->required()->maxLength(255),
                 Forms\Components\TextInput::make('email')->email()->required()->unique(ignoreRecord: true),
                 Forms\Components\Select::make('role')->options(Role::labels())->required(),
