@@ -8,6 +8,11 @@ This repository contains a Laravel/Filament starter implementation for a weekly 
 4. **coordinator** – sees approved sheets and lifetime totals.
 5. **root admin** – manages users, role assignments, skill trade sections, and manager/employee visibility.
 
+## Framework targets
+
+- Laravel **12.x**
+- Filament **4.x**
+
 ## Implemented domain model
 
 - Immutable **skill trade** assigned at employee creation (`skill_trade_id` field disabled on user edit in Filament).
