@@ -37,10 +37,21 @@ class CreateUserCommand extends Command
             return self::FAILURE;
         }
 
-        // Get password
+        // Get password with confirmation
         $password = $this->secret('Password');
         if (empty($password)) {
             $this->error('Password is required');
+            return self::FAILURE;
+        }
+
+        if (strlen($password) < 8) {
+            $this->error('Password must be at least 8 characters');
+            return self::FAILURE;
+        }
+
+        $passwordConfirmation = $this->secret('Confirm Password');
+        if ($password !== $passwordConfirmation) {
+            $this->error('Passwords do not match');
             return self::FAILURE;
         }
 
