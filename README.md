@@ -13,6 +13,38 @@ This repository contains a Laravel/Filament starter implementation for a weekly 
 - Laravel **12.x**
 - Filament **4.x**
 
+## Important: why this does not open yet
+
+This repository currently contains the **hour-tracker domain code** (models, migrations, Filament resources), but it was initially created in a restricted environment where the full Laravel skeleton could not be downloaded.  
+That is why files like `artisan` and `.env.example` are missing right now.
+
+## Make it runnable (generates artisan + .env.example)
+
+Run:
+
+```bash
+./scripts/bootstrap-laravel-app.sh
+```
+
+This script will:
+
+1. Download a fresh Laravel 12 skeleton.
+2. Copy Laravel app files into this repo.
+3. Re-apply the custom hour-tracker files already present here.
+
+Then run:
+
+```bash
+cp .env.example .env
+composer install
+php artisan key:generate
+php artisan migrate --seed
+php artisan make:filament-user
+php artisan serve
+```
+
+Open `http://127.0.0.1:8000/admin`.
+
 ## Implemented domain model
 
 - Immutable **skill trade** assigned at employee creation (`skill_trade_id` field disabled on user edit in Filament).
@@ -46,7 +78,7 @@ This repository contains a Laravel/Filament starter implementation for a weekly 
 Network access to Packagist/GitHub was blocked in this environment, so dependencies could not be installed here. To run locally:
 
 ```bash
-composer install
+composer install  # installs Laravel 12 + Filament 4 dependencies
 php artisan key:generate
 php artisan migrate --seed
 php artisan make:filament-user
