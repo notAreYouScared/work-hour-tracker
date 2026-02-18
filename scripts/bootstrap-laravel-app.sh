@@ -64,7 +64,7 @@ Next steps:
   composer install
   php artisan key:generate
   php artisan migrate --seed
-  php artisan make:filament-user
+  php artisan user:create
   php artisan serve
 
 Open: http://127.0.0.1:8000/admin
