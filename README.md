@@ -46,7 +46,7 @@ This repository contains a Laravel/Filament starter implementation for a weekly 
 Network access to Packagist/GitHub was blocked in this environment, so dependencies could not be installed here. To run locally:
 
 ```bash
-composer install  # installs Laravel 12 + Filament 4 dependencies
+composer install
 php artisan key:generate
 php artisan migrate --seed
 php artisan make:filament-user
